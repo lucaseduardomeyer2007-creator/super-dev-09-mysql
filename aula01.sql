@@ -1,51 +1,73 @@
--- Criar o banco
-CREATE DATABASE RESTAU_CALABREZA;
+-- Criar banco de dados
+CREATE DATABASE restau_calabresa;
 
--- DEFINIR QUAL O BANCO DE DADOS QUE UTILIZAREMOS
-USE RESTAU_CALABREZA;
+-- Definir qual banco de dados que utilizaremos
+USE restau_calabresa;
 
--- CRIAR TABELA
+-- Criar tabela
 CREATE TABLE funcionarios(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50)
 );
 
---PARA MOSTRAR AS TABELAS
+-- APRESENTAR AS TABELAS
 SHOW TABLES;
 
--- VISUALIZAR A TABELA COMO ELA É
+-- Visualizar a tabela como ela é
 DESCRIBE funcionarios;
 
---CADASTRAR UM REGISTRO
--- INSERT INTO <nome-tabela> (<colunas>) VALUE (<valores>)
-INSERT INTO funcionarios (nome) VALUE ("Justin bieber");
+-- Cadastrar um registro
+-- INSERT INTO <nome-tabela> (colunas) VALUE (valores);
+INSERT INTO funcionarios (nome) VALUE ("Justin Bieber");
 
---CONSULTAR OS REGISTROS(LINHAS) 
---SELECT <colunas> FROM <tabela>; 
-SELECT id, nome FROM funcionarios
+-- Consultar os registros
+-- SELECT <colunas> FROM <tabela>;
+SELECT id, nome FROM funcionarios;
 
---ADICIONAR UMA COLUNA EM UM ATABELA EXISTENTE
---ALTER TABLE <nome_tabela> ADD COLUMN <nome_coluna>  <tipo_coluna>
+-- adicionar uma coluna em uma tabela existente
+-- ALTER TABLE <nome_tabela> ADD COLUMN <nome_coluna> <TIPO_COLUNA>
 ALTER TABLE funcionarios ADD COLUMN cargo VARCHAR(30);
 
---CONSULTAR OS REGISTROS
+-- Consultar os registros
 SELECT id, nome, cargo FROM funcionarios;
 
---ADICIONAR OUTRA COLUNA
-ALTER TABLE funcionarios ADD COLUMN data_nascimento DATE
+-- adicionar coluna data de nascimento
+ALTER TABLE funcionarios ADD COLUMN data_nascimento DATE;
+-- adicionar coluna salario
+ALTER TABLE funcionarios ADD COLUMN salario DOUBLE;
 
---Atualizar dados de um regidtro
+-- consultar todas as colunas da tabela funcionarios
+SELECT id, nome, cargo, data_nascimento, salario FROM funcionarios;
+
+-- atualizar dados de um registro
+-- UPDATE <nome_tabela> SET <coluna> = <valor>
+UPDATE clientes SET status = "PENDENTE";
+
+-- atualizar dados de um registro
+-- UPDATE <nome_tabela> SET <coluna> = <valor>
 UPDATE funcionarios SET cargo = "Garçom" WHERE id = 1;
 
--- ATUALIZAR MAIS DE UMA COLUNA POR VEZ
-UPDATE funcionarios SET 
-    data_nascimento = "1998-01-09",
+-- atualizar mais de uma coluna por vez
+UPDATE funcionarios SET
+    data_nascimento = "1998-01-09"
     salario = 2500.20
     WHERE id = 1;
 
 INSERT INTO funcionarios (nome, cargo, data_nascimento, salario)
-    VALUE ("Elias da silva", "Caixa", "2000-07-12", 1996.50);
+    VALUE ("Elias da Silva", "Caixa", "2000-07-12", 1996.50);
 INSERT INTO funcionarios (nome, cargo, data_nascimento, salario)
-    VALUE ("Victor sem C", "Manobrista", "2012-09-29", 300.00);
+    VALUE ("Victor sem C", "Manobrista", "2021-09-29", 300.00);
 INSERT INTO funcionarios (nome, cargo, data_nascimento, salario)
-    VALUE ("Peter Souza", "Cozinheiro", 1995-02-28, 6795.30):
+    VALUE ("Peter Souza", "Cozinheiro Junior", "1995-02-28", 6795.30);
+
+-- consultar todas as colunas da tabela funcionarios
+
+SELECT id, nome, cargo, data_nascimento, salario FROM funcionarios:
+
+-- apagar tabela --
+-- DROP TABLE <nome-tabela> --
+DROP TABLE mesas
+
+-- apagar tabela com condicional --
+-- DROP TABLE IF <condição> <nome-tabela>
+DROP TABLE IF EXISTS mesas
