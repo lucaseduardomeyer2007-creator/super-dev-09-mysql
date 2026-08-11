@@ -331,3 +331,25 @@ SELECT
 FROM comandas
 INNER JOIN clientes ON (comandas.id_cliente = clientes.id);
 
+
+/*
+
+Criar tabela de estados (com 2 estados)
+- id
+- nome
+- sigla
+Criar tabela de cidades (com 2 cidades por estado)
+- id
+- nome
+- quantidade habitantes
+Criar tabela de bairros (com 2 bairros por cidade)
+- id
+- nome
+Criar endereço por bairro (com 1 endereços por bairro)
+- id 
+- cep
+- logradouro
+- numero
+- complemento
+
+*/
